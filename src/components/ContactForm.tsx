@@ -27,23 +27,45 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://formspree.io/f/mpwyykzv", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Success!",
-      description: "Thank you for your interest. Our team will contact you within 24 hours.",
-    });
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Thank you for your interest. Our team will contact you within 24 hours.",
+        });
 
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      company: "",
-      plan: "",
-    });
-    setIsSubmitting(false);
+        // Reset form
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          company: "",
+          plan: "",
+        });
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "Something went wrong. Please try again later.",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Unable to send form data. Please check your connection.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -177,13 +199,13 @@ const ContactForm = () => {
           {/* Contact Info */}
           <div className="mt-8 text-center space-y-2 animate-fade-in">
             <p className="text-muted-foreground">
-              <strong className="text-foreground">Location:</strong> Shyamoli, Dhaka, Bangladesh
+              <strong className="text-foreground">Location:</strong> 23/2 SEL HUQ Sky Park, Shyamoli, Mirpur Road, Dhaka
             </p>
             <p className="text-muted-foreground">
-              <strong className="text-foreground">Phone:</strong> +880 1XXX-XXXXXX
+              <strong className="text-foreground">Phone:</strong> +880 1540-791548
             </p>
             <p className="text-muted-foreground">
-              <strong className="text-foreground">Email:</strong> info@dvalley.com.bd
+              <strong className="text-foreground">Email:</strong> contact@dvalleybd.com
             </p>
           </div>
         </div>

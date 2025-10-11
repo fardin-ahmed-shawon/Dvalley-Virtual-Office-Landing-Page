@@ -7,14 +7,14 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              About D Valley
+              About Dreamers Valley Limited
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
 
           <div className="bg-card rounded-2xl p-8 lg:p-12 shadow-lg animate-scale-in">
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              D Valley is Dhaka's premier coworking space located in the heart of Shyamoli, 
+              Dvalley is Dhaka's premier coworking space located in the heart of Shyamoli, 
               offering innovative workspace solutions for entrepreneurs, startups, and 
               freelancers. We provide a professional, reliable, and inspiring environment 
               that empowers your business to thrive.

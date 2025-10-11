@@ -5,13 +5,13 @@ const Testimonials = () => {
     {
       name: "Ahmed Rahman",
       role: "Tech Startup Founder",
-      content: "D Valley's virtual office gave my startup the professional image we needed at a price we could actually afford. The savings allowed us to invest more in product development!",
+      content: "Dvalley's virtual office gave my startup the professional image we needed at a price we could actually afford. The savings allowed us to invest more in product development!",
       rating: 5,
     },
     {
       name: "Fatima Khan",
       role: "Freelance Consultant",
-      content: "As a freelancer, having a prestigious business address was crucial for client trust. D Valley delivered exactly that, plus amazing support from their team.",
+      content: "As a freelancer, having a prestigious business address was crucial for client trust. Dvalley delivered exactly that, plus amazing support from their team.",
       rating: 5,
     },
     {
@@ -36,7 +36,7 @@ const Testimonials = () => {
             What Our Clients Say
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it — hear from businesses who've experienced the D Valley difference
+            Don't just take our word for it — hear from businesses who've experienced the Dvalley difference
           </p>
         </div>
 
@@ -51,7 +51,7 @@ const Testimonials = () => {
               
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                  <Star key={i} className="h-5 w-5 text-primary" />
                 ))}
               </div>
 
@@ -81,7 +81,7 @@ const Testimonials = () => {
         {/* Trust Badge */}
         <div className="mt-12 text-center animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-primary/10 px-6 py-3 rounded-full">
-            <Star className="h-5 w-5 text-primary fill-primary" />
+            <Star className="h-5 w-5 text-primary" />
             <span className="font-semibold text-foreground">
               4.9/5 Average Rating from 200+ Reviews
             </span>

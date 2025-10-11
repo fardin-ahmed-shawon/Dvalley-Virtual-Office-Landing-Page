@@ -1,4 +1,19 @@
 import { Building2, Users, Star } from "lucide-react";
+import C1 from "../assets/c4.png";
+import C2 from "../assets/c2.jpg";
+import C3 from "../assets/c3.jpg";
+import C4 from "../assets/c1.jpg";
+import C5 from "../assets/c5.jpeg";
+import C6 from "../assets/c6.png";
+
+const ClientLogos = {
+  C1,
+  C2,
+  C3,
+  C4,
+  C5,
+  C6
+}
 
 const ClientShowcase = () => {
   const stats = [
@@ -38,17 +53,18 @@ const ClientShowcase = () => {
 
         {/* Client Logos Placeholder */}
         <div className="bg-secondary/30 rounded-2xl p-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-5 items-center justify-items-center">
+            {Object.values(ClientLogos).map((logo, index) => (
               <div
-                key={item}
+                key={index}
                 className="w-32 h-20 bg-muted rounded-lg flex items-center justify-center animate-scale-in"
-                style={{ animationDelay: `${item * 50}ms` }}
+                style={{ animationDelay: `${index * 50}ms` }}
               >
-                <Building2 className="h-8 w-8 text-muted-foreground" />
+                <img src={logo} alt="" />
               </div>
             ))}
           </div>
+          <br />
           <p className="text-center text-sm text-muted-foreground mt-8">
             Trusted by leading startups, tech companies, and consultancies across Dhaka
           </p>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-coworking.jpg";
+import LOGO from "../../public/dlogo.png";
 
 const Hero = () => {
   const scrollToForm = () => {
@@ -13,7 +14,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="D Valley Coworking Space in Dhaka"
+          alt="Dvalley Coworking Space in Dhaka"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/50" />
@@ -22,6 +23,8 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
+          <img src={LOGO} alt="Dvalley Logo" className="mx-auto mb-6" width={350} />
+          <br />
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Get Your Premium Virtual Office in Dhaka —{" "}
             <span className="text-primary">Only 1990 BDT/Month!</span>
@@ -46,7 +49,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={scrollToForm}
-              className="border-2 border-white text-white hover:bg-white hover:text-foreground font-semibold px-8 py-6 text-lg rounded-xl backdrop-blur-sm transition-all duration-300"
+              className="border-2 border-white text-black hover:bg-white hover:text-foreground font-semibold px-8 py-6 text-lg rounded-xl backdrop-blur-sm transition-all duration-300"
             >
               Book Now
             </Button>

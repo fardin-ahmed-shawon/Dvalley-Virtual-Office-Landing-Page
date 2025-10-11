@@ -94,3 +94,11 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 }
+
+.text-primary {
+  color: #80bf1e;
+}
+.bg-primary {
+  background-color: #80bf1e !important;
+  color: #fff !important;
+}
