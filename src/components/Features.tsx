@@ -14,8 +14,8 @@ const Features = () => {
     },
     {
       icon: Users,
-      title: "Free Meeting Room Access",
-      description: "Limited hours of complimentary meeting room usage for client meetings and team collaborations.",
+      title: "Meeting Room Access",
+      description: "You will get meeting room usage for client meetings and team collaborations.",
     },
     {
       icon: Phone,
