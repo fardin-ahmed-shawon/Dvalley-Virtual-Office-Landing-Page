@@ -66,7 +66,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary rounded-full" />
-              <span>Free Meeting Room</span>
+              <span>Meeting Room</span>
             </div>
           </div>
         </div>
