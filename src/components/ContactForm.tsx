@@ -24,47 +24,73 @@ const ContactForm = () => {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      const response = await fetch("https://formspree.io/f/mpwyykzv", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const response = await fetch("https://formspree.io/f/mpwyykzv", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-      if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "Thank you for your interest. Our team will contact you within 24 hours.",
-        });
+    if (response.ok) {
+      // GA4 PURCHASE EVENT
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
 
-        // Reset form
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          company: "",
-          plan: "",
-        });
-      } else {
-        toast({
-          title: "Submission Failed",
-          description: "Something went wrong. Please try again later.",
+        window.dataLayer.push({
+          event: "purchase",
+          ecommerce: {
+            transaction_id: "lead-" + Date.now(), // unique ID for lead
+            value: formData.plan === "yealy-plan-19990-BDT/year" ? 19990 : 1990,
+            currency: "BDT",
+            items: [
+              {
+                item_id: formData.plan,
+                item_name: "Virtual Office Plan",
+                price: formData.plan === "yealy-plan-19990-BDT/year" ? 19990 : 1990,
+                quantity: 1,
+                item_category: "Virtual Office",
+                item_variant: formData.plan,
+              },
+            ],
+          },
         });
       }
-    } catch (error) {
+
       toast({
-        title: "Error",
-        description: "Unable to send form data. Please check your connection.",
+        title: "Success!",
+        description:
+          "Thank you for your interest. Our team will contact you within 24 hours.",
       });
-    } finally {
-      setIsSubmitting(false);
+
+      // Reset form
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        company: "",
+        plan: "",
+      });
+    } else {
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again later.",
+      });
     }
-  };
+  } catch (error) {
+    toast({
+      title: "Error",
+      description: "Unable to send form data. Please check your connection.",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
 
   const handleChange = (field: string, value: string) => {
@@ -158,8 +184,8 @@ const ContactForm = () => {
                     <SelectValue placeholder="Select your preferred plan" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="monthly">Monthly Plan - 1990 BDT/month</SelectItem>
-                    <SelectItem value="yearly">Yearly Plan - 19,990 BDT/year (Save 2 months!)</SelectItem>
+                    <SelectItem value="monthly-plan-1990-BDT/month">Monthly Plan - 1990 BDT/month</SelectItem>
+                    <SelectItem value="yealy-plan-19990-BDT/year">Yearly Plan - 19,990 BDT/year (Save 2 months!)</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
