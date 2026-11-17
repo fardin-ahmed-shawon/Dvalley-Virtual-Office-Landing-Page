@@ -5,6 +5,26 @@ import C3 from "../assets/c3.jpg";
 import C4 from "../assets/c1.jpg";
 import C5 from "../assets/c5.jpeg";
 import C6 from "../assets/c6.png";
+import C7 from "../assets/471767111_122133305600518406_9119095537216198514_n.jpg";
+import C8 from "../assets/539767862_784439797438296_2587876904245068289_n.png";
+import C9 from "../assets/795385966_122173599062958258_4159725293848021339_n.jpg";
+import C10 from "../assets/819470285_122205131960594264_7608944805154707556_n.jpg";
+import C11 from "../assets/Screenshot 2026-11-16 135620.png";
+import C12 from "../assets/download.png";
+import C13 from "../assets/download (1).png";
+import C14 from "../assets/download (2).png";
+import C15 from "../assets/download (3).png";
+import C16 from "../assets/download (4).png";
+import C17 from "../assets/download (5).png";
+import C18 from "../assets/download (6).png";
+import C19 from "../assets/download (7).png";
+import C20 from "../assets/download (8).png";
+import C21 from "../assets/download (9).png";
+import C22 from "../assets/aaaaa.png";
+import C23 from "../assets/download (11).png";
+import C24 from "../assets/download (12).png";
+import C25 from "../assets/aaaaaa2.png";
+import C26 from "../assets/download (14).png";
 
 const ClientLogos = {
   C1,
@@ -12,8 +32,28 @@ const ClientLogos = {
   C3,
   C4,
   C5,
-  C6
-}
+  C6,
+  C7,
+  C8,
+  C9,
+  C10,
+  C11,
+  C12,
+  C13,
+  C14,
+  C15,
+  C16,
+  C17,
+  C18,
+  C19,
+  C20,
+  C21,
+  C22,
+  C23,
+  C24,
+  C25,
+  C26,
+};
 
 const ClientShowcase = () => {
   const stats = [
@@ -57,10 +97,10 @@ const ClientShowcase = () => {
             {Object.values(ClientLogos).map((logo, index) => (
               <div
                 key={index}
-                className="w-32 h-20 bg-muted rounded-lg flex items-center justify-center animate-scale-in"
+                className="w-32 h-20 bg-muted rounded-lg flex items-center justify-center animate-scale-in overflow-hidden p-2"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <img src={logo} alt="" />
+                <img src={logo} alt={`Client logo ${index + 1}`} className="max-h-full max-w-full object-contain" />
               </div>
             ))}
           </div>
